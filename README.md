@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Equinox Tinting — equinoxtinting.com
 
-## Getting Started
+Redesign of the Equinox Tinting site (window tint & ceramic coating, Port St. Lucie, FL).
 
-First, run the development server:
+**Stack:** Next.js 16 (App Router, Cache Components) · TypeScript · Tailwind CSS v4 · shadcn/ui (Base UI) · Motion · GSAP + ScrollTrigger · Lenis · Lucide
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+cp .env.example .env.local   # then fill in values
+npm run dev                  # http://localhost:3000
+npm run build && npm start   # production
+npm run lint
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Quote form
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+`src/app/actions/quote.ts` is a Server Action that validates input server-side (with a honeypot
+spam trap), then forwards the request to [Formspree](https://formspree.io) as JSON. Formspree emails
+it to the address configured on the form in your Formspree dashboard.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+| Env var | Required | Notes |
+| --- | --- | --- |
+| `FORMSPREE_FORM_ID` | yes | From your form endpoint `https://formspree.io/f/<FORM_ID>` |
+| `NEXT_PUBLIC_SITE_URL` | no | Defaults to `https://equinoxtinting.com` |
 
-## Learn More
+Submissions come from the server, not the visitor's browser. If Formspree rejects them (the server
+log shows `[quote] Formspree responded …`), check the form's settings: a domain restriction or a
+required CAPTCHA can block server-sent submissions.
 
-To learn more about Next.js, take a look at the following resources:
+**Until `FORMSPREE_FORM_ID` is set, the form does not pretend to submit** — visitors see a message
+asking them to call or email, and the server logs an error.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Where things live
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```
+src/
+  app/                    routes, metadata, sitemap.ts, robots.ts, manifest.ts, icons
+  app/actions/quote.ts    quote form server action
+  lib/site.ts             business details (NAP, hours, socials, nav) — single source of truth
+  lib/services.ts         services + film specs (copy from the original site)
+  lib/photos.ts           all photography + alt text/captions
+  lib/reviews.ts          customer reviews (empty — see below)
+  lib/schema.tsx          JSON-LD (AutomotiveBusiness, Service, BreadcrumbList, ItemList)
+  components/motion/      Lenis provider, text/image reveals, parallax, magnetic, page transition
+  components/sections/    page sections (home/, contact, CTA band, page hero, …)
+  components/tint/        tint shade selector + accessible before/after compare slider
+  components/gallery/     gallery grid, tiles, lightbox
+  components/ui/          shadcn/ui primitives
+```
 
-## Deploy on Vercel
+## Content rules
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+All business facts, service copy and film specifications come from the previous site. Do not add
+pricing, warranties, certifications or reviews that the shop hasn't confirmed.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **Reviews:** the old site had none, so `src/lib/reviews.ts` is empty and the Reviews section is
+  hidden. Add real, attributable reviews there and it appears automatically.
+- **Tint selector:** previews are explicitly labeled illustrative. The Florida VLT limits shown are a
+  reference summary of F.S. §316.2953–316.2954 — verify if the law changes.
+
+## Redirects
+
+The old site was a single page with `#home`, `#services`, `#portfolio` and `#contact` anchors; the new
+homepage keeps those IDs. Common guessed paths (`/portfolio`, `/tint`, `/ceramic-coating`, `/quote`,
+…) 301/308 to their new pages — see `next.config.ts`.

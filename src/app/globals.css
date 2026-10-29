@@ -1,26 +1,282 @@
 @import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+/* The site is dark-only by design; shadcn's .dark variant maps to everything. */
+@custom-variant dark (&:is(*));
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  /* Brand palette */
+  --color-ink: #060708;
+  --color-carbon: #0b0d0f;
+  --color-graphite: #15181b;
+  --color-steel: #22272b;
+  --color-bone: #eeece7;
+  --color-mist: #9ba3a8;
+  --color-teal: #13a7a8;
+  --color-teal-bright: #3cd6d4;
+  --color-teal-deep: #0b5e60;
+
+  --font-sans: var(--font-archivo);
+  --font-display: var(--font-archivo);
+  --font-mono: var(--font-geist-mono);
+
+  --radius-sm: 2px;
+  --radius-md: 4px;
+  --radius-lg: 6px;
+  --radius-xl: 10px;
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+
+  --animate-marquee: marquee 40s linear infinite;
+
+  @keyframes marquee {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+    to {
+      transform: translate3d(-50%, 0, 0);
+    }
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+:root {
+  color-scheme: dark;
+  --background: #060708;
+  --foreground: #eeece7;
+  --card: #0b0d0f;
+  --card-foreground: #eeece7;
+  --popover: #0b0d0f;
+  --popover-foreground: #eeece7;
+  --primary: #13a7a8;
+  --primary-foreground: #031414;
+  --secondary: #15181b;
+  --secondary-foreground: #eeece7;
+  --muted: #15181b;
+  --muted-foreground: #9ba3a8;
+  --accent: #15181b;
+  --accent-foreground: #eeece7;
+  --destructive: #ff6b5e;
+  --border: rgb(255 255 255 / 0.1);
+  --input: rgb(255 255 255 / 0.14);
+  --ring: #13a7a8;
+  --radius: 4px;
+
+  --gutter: clamp(1.25rem, 4vw, 4rem);
+  --header-h: 4.5rem;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  html {
+    @apply bg-ink font-sans;
+    -webkit-text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    @apply bg-ink text-bone antialiased;
+    font-feature-settings: "ss01", "ss02";
+  }
+  ::selection {
+    background: var(--color-teal);
+    color: var(--color-ink);
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-teal-bright);
+    outline-offset: 3px;
+  }
+  [id] {
+    scroll-margin-top: calc(var(--header-h) + 1rem);
+  }
+}
+
+@layer components {
+  .container-x {
+    width: 100%;
+    max-width: 1680px;
+    margin-inline: auto;
+    padding-inline: var(--gutter);
+  }
+
+  /* Expanded display face — echoes the wide, italic Equinox wordmark */
+  .font-display {
+    font-family: var(--font-archivo);
+    font-variation-settings: "wdth" 125;
+    letter-spacing: -0.02em;
+    line-height: 0.88;
+    text-transform: uppercase;
+  }
+  .font-wide {
+    font-variation-settings: "wdth" 115;
+  }
+
+  .text-display-xl {
+    font-size: clamp(3.1rem, 11.5vw, 12.5rem);
+  }
+  .text-display-lg {
+    font-size: clamp(2.15rem, 7.4vw, 8rem);
+  }
+  .text-display-md {
+    font-size: clamp(1.9rem, 4.6vw, 5rem);
+  }
+  .text-display-sm {
+    font-size: clamp(1.6rem, 2.8vw, 3rem);
+  }
+
+  .eyebrow {
+    font-family: var(--font-geist-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-mist);
+  }
+
+  /* Outlined display text */
+  .text-outline {
+    color: transparent;
+    -webkit-text-stroke: 1px rgb(238 236 231 / 0.55);
+  }
+
+  /* Hairline rule with a teal start cap */
+  .rule {
+    position: relative;
+    height: 1px;
+    background: var(--border);
+  }
+  .rule::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3rem;
+    background: var(--color-teal);
+  }
+
+  /* Film grain overlay to keep large dark areas from banding */
+  .grain::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.06;
+    mix-blend-mode: overlay;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* The "squeegee": a thin light line that sweeps an image once it reveals */
+  .film-sweep {
+    position: relative;
+    overflow: hidden;
+  }
+  .film-sweep::before {
+    content: "";
+    position: absolute;
+    inset: -20% auto -20% 0;
+    z-index: 2;
+    width: 28%;
+    pointer-events: none;
+    background: linear-gradient(
+      100deg,
+      transparent 0%,
+      rgb(60 214 212 / 0) 35%,
+      rgb(190 255 252 / 0.22) 50%,
+      rgb(60 214 212 / 0) 65%,
+      transparent 100%
+    );
+    transform: translateX(-120%) skewX(-12deg);
+  }
+  .film-sweep[data-revealed="true"]::before {
+    animation: film-sweep 1.6s var(--ease-in-out-quart) 0.35s both;
+  }
+}
+
+@keyframes film-sweep {
+  to {
+    transform: translateX(480%) skewX(-12deg);
+  }
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: clip;
+}
+
+/* ─── Page transitions (React <ViewTransition>) ─── */
+::view-transition {
+  pointer-events: none;
+}
+::view-transition-old(.page-out) {
+  animation: 220ms var(--ease-in-out-quart) both page-out;
+}
+::view-transition-new(.page-in) {
+  animation: 520ms var(--ease-out-expo) 120ms both page-in;
+}
+::view-transition-group(site-header) {
+  animation: none;
+  z-index: 100;
+}
+::view-transition-old(site-header) {
+  display: none;
+}
+::view-transition-new(site-header) {
+  animation: none;
+}
+@keyframes page-out {
+  to {
+    opacity: 0;
+    transform: translateY(-12px);
+    filter: blur(4px);
+  }
+}
+@keyframes page-in {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+    clip-path: inset(6% 0 0 0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(*),
+  ::view-transition-new(*),
+  ::view-transition-group(*) {
+    animation: none !important;
+  }
+  .film-sweep::before {
+    display: none;
+  }
+  .animate-marquee {
+    animation: none;
+  }
 }
