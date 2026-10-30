@@ -11,15 +11,15 @@ import { gsap, mq, useGSAP } from "@/lib/gsap";
 import { photos } from "@/lib/photos";
 
 const featured = [
-  photos.lexusRx350,
-  photos.fordMustang,
-  photos.teslaModel3,
-  photos.corvetteC6Blue,
-  photos.audiA5,
-  photos.dodgeCharger,
-  photos.audiA3,
-  photos.bmwX3,
-  photos.lexusEs,
+  photos.corvetteC8Yellow,
+  photos.teslaModelX,
+  photos.corvetteC8Red,
+  photos.lexusHex,
+  photos.squeegeeGlass,
+  photos.dodgeChargerRed,
+  photos.corvetteC8Orange,
+  photos.fordMustangHex,
+  photos.ceramicCoatingApplication,
 ];
 
 // Three columns, each drifting at its own speed.
@@ -87,7 +87,7 @@ export function GalleryPreview() {
 
         <div className="mt-16 flex flex-col items-start gap-6 border-t border-white/10 pt-10 sm:flex-row sm:items-center sm:justify-between lg:mt-8">
           <p className="max-w-md text-mist">
-            {Object.keys(photos).length} photos from the studio — sedans, sports cars, SUVs and trucks.
+            {Object.keys(photos).length} photos from the studio — the cars, and the work that goes into them.
           </p>
           <CtaLink href="/gallery" variant="outline">
             View the full gallery

@@ -8,7 +8,7 @@ import { useState } from "react";
 
 import { site } from "@/lib/site";
 
-/** Thumb-reachable call + quote actions on small screens, shown once the hero is passed. */
+/** Thumb-reachable call + estimate actions on small screens, shown once the hero is passed. */
 export function MobileCtaBar() {
   const pathname = usePathname();
   const { scrollY } = useScroll();
@@ -41,7 +41,7 @@ export function MobileCtaBar() {
                 href="/contact"
                 className="flex h-12 items-center justify-center gap-2 bg-teal text-[0.7rem] font-medium uppercase tracking-[0.14em] text-ink"
               >
-                Get a quote
+                Free estimate
                 <ArrowUpRight aria-hidden className="size-4" />
               </Link>
             )}

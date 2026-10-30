@@ -33,7 +33,7 @@ export default function ServicesPage() {
         eyebrow="Services"
         lines={["Specializing", <span key="2">in your <span className="italic text-teal">ride.</span></span>]}
         intro="We offer a variety of services and products that protect the surfaces of your car from the intense Florida heat, UV rays, wear and tear and more — specifically designed to keep your car looking its best while being gentle on the paint and glass."
-        photo={photos.silveradoAndCorvette}
+        photo={photos.corvetteC8Yellow}
         crumbs={[{ name: "Services", path: "/services" }]}
       />
 
@@ -66,7 +66,7 @@ export default function ServicesPage() {
                 </h2>
                 <p className="mt-6 max-w-lg text-lg leading-relaxed text-bone/80">{s.summary}</p>
                 <div className="mt-10 flex flex-col items-start gap-6 sm:flex-row sm:items-center">
-                  <CtaLink href={quoteHref(s.quoteValue)}>Request a quote</CtaLink>
+                  <CtaLink href={quoteHref(s.quoteValue)}>Get a free estimate</CtaLink>
                   {!s.href.includes("#") && <TextLink href={s.href}>Learn more</TextLink>}
                 </div>
               </Reveal>

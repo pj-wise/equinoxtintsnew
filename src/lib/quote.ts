@@ -1,6 +1,6 @@
 import { quoteServices, type QuoteService } from "@/lib/services";
 
-/** Link to the quote form with a service pre-selected. */
+/** Link to the free estimate form with a service pre-selected. */
 export function quoteHref(service: QuoteService) {
   return `/contact?service=${encodeURIComponent(service)}#quote`;
 }

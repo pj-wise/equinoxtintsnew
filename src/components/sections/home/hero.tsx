@@ -27,7 +27,7 @@ export function Hero() {
   const contentY = useTransform(scrollYProgress, [0, 1], ["0%", "-22%"]);
   const fade = useTransform(scrollYProgress, [0, 0.7], [1, 0]);
 
-  const hero = photos.corvetteC7Black;
+  const hero = photos.corvetteC8Red;
 
   return (
     <section
@@ -37,7 +37,7 @@ export function Hero() {
       className="grain relative isolate flex min-h-[100svh] flex-col overflow-hidden bg-ink"
     >
       {/* Ambient light */}
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_78%_35%,rgb(19_167_168/0.16),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(60%_60%_at_78%_35%,rgb(15_255_255/0.11),transparent_70%)]" />
 
       {/* Image: full-bleed on mobile, a tall right-hand panel on desktop */}
       <motion.div
@@ -53,7 +53,7 @@ export function Hero() {
             placeholder="blur"
             quality={80}
             sizes="(min-width: 1024px) 46vw, 100vw"
-            className="object-cover object-[50%_70%]"
+            className="object-cover object-[50%_62%]"
           />
         </ImageReveal>
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-ink/55 to-ink/30 lg:bg-gradient-to-r lg:from-ink lg:via-ink/10 lg:to-transparent" />
@@ -116,7 +116,7 @@ export function Hero() {
           </p>
           <div className="flex flex-col gap-3 sm:flex-row">
             <CtaLink href="/contact" size="lg" magnetic>
-              Get a quote
+              Get a free estimate
             </CtaLink>
             <CtaLink href={site.phone.href} variant="outline" size="lg" icon="phone">
               {site.phone.display}

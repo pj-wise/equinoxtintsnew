@@ -15,7 +15,7 @@ export function localBusinessJsonLd() {
     name: site.name,
     url: site.url,
     logo: `${site.url}/icon.png`,
-    image: [`${site.url}${photos.storefront.src.src}`, `${site.url}${photos.corvetteC7Black.src.src}`],
+    image: [`${site.url}${photos.corvetteC8Red.src.src}`, `${site.url}${photos.customerLounge.src.src}`],
     description: site.description,
     telephone: site.phone.e164,
     email: site.email,

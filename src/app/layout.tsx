@@ -51,10 +51,10 @@ export const metadata: Metadata = {
     description: site.description,
     images: [
       {
-        url: photos.corvetteC7Black.src.src,
-        width: photos.corvetteC7Black.src.width,
-        height: photos.corvetteC7Black.src.height,
-        alt: photos.corvetteC7Black.alt,
+        url: photos.corvetteC8Red.src.src,
+        width: photos.corvetteC8Red.src.width,
+        height: photos.corvetteC8Red.src.height,
+        alt: photos.corvetteC8Red.alt,
       },
     ],
   },

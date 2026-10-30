@@ -11,9 +11,9 @@ type Token = { word: string } | { photo: Photo };
 // Copy from the original site, lightly edited for flow.
 const tokens: Token[] = [
   ..."We're passionate about what we do.".split(" ").map((word) => ({ word })),
-  { photo: photos.storefront },
+  { photo: photos.filmPlotter },
   ..."Our success comes down to passion, dedication".split(" ").map((word) => ({ word })),
-  { photo: photos.installRoom },
+  { photo: photos.customerLounge },
   ..."and customer satisfaction.".split(" ").map((word) => ({ word })),
 ];
 

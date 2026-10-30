@@ -9,11 +9,11 @@ type ContactBlockProps = {
   id?: string;
 };
 
-/** Contact details + quote form. Used on the homepage (#contact) and /contact. */
+/** Contact details + free estimate form. Used on the homepage (#contact) and /contact. */
 export function ContactBlock({ headingLevel = "h2", id = "contact" }: ContactBlockProps) {
   return (
     <section id={id} aria-labelledby={`${id}-title`} className="grain relative isolate overflow-hidden py-24 sm:py-32">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(70%_60%_at_0%_100%,rgb(19_167_168/0.14),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(70%_60%_at_0%_100%,rgb(15_255_255/0.10),transparent_70%)]" />
       <div className="container-x grid grid-cols-1 gap-16 lg:grid-cols-12 lg:gap-12">
         <div className="lg:col-span-5">
           <p className="eyebrow mb-6 flex items-center gap-3">
@@ -89,9 +89,9 @@ export function ContactBlock({ headingLevel = "h2", id = "contact" }: ContactBlo
 
         <Reveal className="lg:col-span-6 lg:col-start-7" delay={0.15}>
           <div id="quote" className="border border-white/10 bg-carbon/80 p-6 backdrop-blur-sm sm:p-10">
-            <h3 className="font-display text-display-sm">Request a quote</h3>
+            <h3 className="font-display text-display-sm">Get a free estimate</h3>
             <p className="mt-3 max-w-md text-sm leading-relaxed text-mist">
-              Tell us a little about your vehicle and what you&apos;re after. We&apos;ll follow up with options.
+              Tell us about your vehicle and what you&apos;re after — we&apos;ll follow up with a free estimate.
             </p>
             <QuoteForm className="mt-10" />
           </div>

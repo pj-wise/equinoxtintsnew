@@ -75,7 +75,7 @@ export function SiteHeader() {
             {site.phone.display}
           </a>
           <CtaLink href="/contact" className="hidden sm:inline-flex" magnetic>
-            Get a quote
+            Free estimate
           </CtaLink>
           <MobileMenu />
         </div>

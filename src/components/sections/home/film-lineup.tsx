@@ -161,7 +161,7 @@ export function FilmLineup({ headingLevel = "h2" }: { headingLevel?: "h2" | "h3"
               </ul>
 
               <div className="mt-10">
-                <TextLink href={quoteHref("Automotive window tint")}>Get a quote with {film.name}</TextLink>
+                <TextLink href={quoteHref("Automotive window tint")}>Free estimate with {film.name}</TextLink>
               </div>
             </div>
           </article>
@@ -178,7 +178,7 @@ export function FilmLineup({ headingLevel = "h2" }: { headingLevel?: "h2" | "h3"
             Tell us about your vehicle and how you drive. We&apos;ll recommend a film and shade that fits.
           </p>
           <div className="mt-10 flex flex-col gap-3 sm:flex-row">
-            <CtaLink href={quoteHref("Automotive window tint")}>Get a recommendation</CtaLink>
+            <CtaLink href={quoteHref("Automotive window tint")}>Get a free recommendation</CtaLink>
           </div>
         </div>
       </div>

@@ -77,7 +77,7 @@ export async function submitQuote(_prev: QuoteState, formData: FormData): Promis
         service: values.service,
         vehicle: values.vehicle || "—",
         message: values.message || "—",
-        _subject: `Quote request: ${values.service} — ${values.name}`,
+        _subject: `Free estimate request: ${values.service} — ${values.name}`,
       }),
     });
     if (!res.ok) {

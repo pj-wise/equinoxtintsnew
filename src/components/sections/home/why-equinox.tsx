@@ -16,22 +16,22 @@ const pillars: Pillar[] = [
   {
     title: "Built for Florida",
     text: "Our products are chosen to protect your car from the intense Florida heat, UV rays and everyday wear and tear.",
-    photo: photos.hyundaiTucson,
+    photo: photos.lexusHex,
   },
   {
     title: "Gentle on paint & glass",
     text: "Everything we use is designed to keep your car looking its best while being gentle on the paint and the glass.",
-    photo: photos.teslaModel3,
+    photo: photos.squeegeeGlass,
   },
   {
     title: "Tailored to you",
     text: "We're passionate about providing the best car care experience possible, with custom solutions tailored to your individual needs.",
-    photo: photos.lexusEs,
+    photo: photos.audiRsInstall,
   },
   {
     title: "Lifetime film warranty",
     text: "All three of our window film series — CarbonFX, FXtreme2 and FX Plus — carry a premium lifetime warranty.",
-    photo: photos.audiA5,
+    photo: photos.fordMustangHex,
   },
   {
     title: "A real studio",

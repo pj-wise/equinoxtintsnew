@@ -15,14 +15,14 @@ export const metadata: Metadata = {
   description:
     "Equinox Tinting is a window tint and ceramic coating studio at 500 NW University Blvd, Unit 101, Port St. Lucie, FL. Passion, dedication and customer satisfaction.",
   alternates: { canonical: "/about" },
-  openGraph: { url: "/about", images: [{ url: photos.storefront.src.src, alt: photos.storefront.alt }] },
+  openGraph: { url: "/about", images: [{ url: photos.customerLounge.src.src, alt: photos.customerLounge.alt }] },
 };
 
 const studio = [
-  { photo: photos.storefrontEntrance, label: "Unit 101", aspect: "aspect-[8/7]" },
-  { photo: photos.customerLounge, label: "The lounge", aspect: "aspect-[4/5]" },
-  { photo: photos.installRoom, label: "Film prep", aspect: "aspect-[3/4]" },
-  { photo: photos.corvetteC7Black, label: "The bay", aspect: "aspect-[4/5]" },
+  { photo: photos.filmPlotter, label: "Film prep", aspect: "aspect-[4/5]" },
+  { photo: photos.squeegeeGlass, label: "Install", aspect: "aspect-[3/4]" },
+  { photo: photos.ceramicCoatingApplication, label: "Coating", aspect: "aspect-[4/5]" },
+  { photo: photos.corvetteC8Yellow, label: "The bay", aspect: "aspect-[3/4]" },
 ];
 
 export default function AboutPage() {
@@ -32,8 +32,7 @@ export default function AboutPage() {
         eyebrow="The studio"
         lines={["Passion", <span key="2">is the <span className="italic text-teal">work.</span></span>]}
         intro="At Equinox Tinting, we are passionate about what we do. We believe our success comes down to passion, dedication and customer satisfaction."
-        photo={photos.storefront}
-        imagePosition="50% 45%"
+        photo={photos.customerLounge}
         crumbs={[{ name: "Studio", path: "/about" }]}
         actions={
           <CtaLink href={mapsLinks.directions} target="_blank" rel="noopener noreferrer" size="lg" variant="outline">
@@ -131,8 +130,8 @@ export default function AboutPage() {
           <div className="lg:col-span-7">
             <ImageReveal className="aspect-[4/3] w-full bg-graphite" direction="left">
               <Image
-                src={photos.ram1500Storefront.src}
-                alt={photos.ram1500Storefront.alt}
+                src={photos.teslaModelX.src}
+                alt={photos.teslaModelX.alt}
                 fill
                 placeholder="blur"
                 sizes="(min-width: 1024px) 58vw, 100vw"

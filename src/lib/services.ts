@@ -36,7 +36,7 @@ export const films: Film[] = [
     ],
     highlights: ["Deep-dyed, true color-stable", "Rich black tone", "Multi-stage UV inhibitors"],
     warranty: "Premium lifetime warranty against excessive color change",
-    photo: photos.audiA3,
+    photo: photos.dodgeChargerRed,
   },
   {
     id: "fxtreme2",
@@ -52,7 +52,7 @@ export const films: Film[] = [
     ],
     highlights: ["Non-metalized nano-ceramic", "Won't interfere with electronics", "Color-stable polyester"],
     warranty: "Premium lifetime warranty against excessive color change",
-    photo: photos.lexusRx350,
+    photo: photos.teslaModelX,
   },
   {
     id: "fx-plus",
@@ -68,7 +68,7 @@ export const films: Film[] = [
     ],
     highlights: ["Maximum heat rejection", "Optical clarity, no distortion", "Scratch-resistant coating"],
     warranty: "Premium lifetime warranty",
-    photo: photos.corvetteC7Black,
+    photo: photos.corvetteC8Yellow,
   },
 ];
 
@@ -100,7 +100,7 @@ export const services: Service[] = [
     href: "/services/window-tint",
     summary:
       "Color-stable dyed and nano-ceramic films that cut heat and glare, block 99% of UVA/UVB rays and enhance the appearance of your car.",
-    photo: photos.fordMustang,
+    photo: photos.corvetteC8Orange,
     quoteValue: "Automotive window tint",
   },
   {
@@ -111,7 +111,7 @@ export const services: Service[] = [
     href: "/services/ceramic-coating",
     summary:
       "A durable, hydrophobic layer that repels water, dirt and contaminants while deepening gloss and protecting against UV and oxidation.",
-    photo: photos.corvetteC6Blue,
+    photo: photos.ceramicCoatingApplication,
     quoteValue: "Ceramic coating",
   },
   {
@@ -122,7 +122,7 @@ export const services: Service[] = [
     href: "/services#residential-commercial",
     summary:
       "Film options for homes and businesses that add privacy, security and energy efficiency — making your space more comfortable and cost-effective.",
-    photo: photos.storefront,
+    photo: photos.filmPlotter,
     quoteValue: "Residential or commercial film",
   },
 ];

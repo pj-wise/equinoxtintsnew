@@ -25,7 +25,7 @@ export function PageHero({ eyebrow, lines, intro, photo, crumbs, actions, imageP
   return (
     <section className="grain relative isolate overflow-hidden pt-[calc(var(--header-h)+2.5rem)] sm:pt-[calc(var(--header-h)+4rem)]">
       <JsonLd data={breadcrumbJsonLd(trail)} />
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(50%_60%_at_85%_20%,rgb(19_167_168/0.14),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(50%_60%_at_85%_20%,rgb(15_255_255/0.10),transparent_70%)]" />
       <div className="container-x grid grid-cols-1 gap-12 pb-16 lg:grid-cols-12 lg:items-end lg:gap-10 lg:pb-24">
         <div className="lg:col-span-7">
           <nav aria-label="Breadcrumb" className="mb-10">

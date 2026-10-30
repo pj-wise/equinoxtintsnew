@@ -7,8 +7,8 @@ import { JsonLd, breadcrumbJsonLd } from "@/lib/schema";
 import { fullAddress } from "@/lib/site";
 
 export const metadata: Metadata = {
-  title: "Contact & Quote Request",
-  description: `Request a window tint or ceramic coating quote from Equinox Tinting. Call (772) 380-3272, email equinoxtinting@gmail.com, or visit ${fullAddress}.`,
+  title: "Contact & Free Estimate",
+  description: `Get a free window tint or ceramic coating estimate from Equinox Tinting. Call (772) 380-3272, email equinoxtinting@gmail.com, or visit ${fullAddress}.`,
   alternates: { canonical: "/contact" },
   openGraph: { url: "/contact" },
 };

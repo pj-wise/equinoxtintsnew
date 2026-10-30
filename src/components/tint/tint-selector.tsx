@@ -3,11 +3,9 @@
 import { cn } from "cn";
 import { Check, Info, X } from "lucide-react";
 import { AnimatePresence, motion } from "motion/react";
-import Image from "next/image";
 import { useId, useState } from "react";
 
 import { CompareSlider } from "@/components/tint/compare-slider";
-import { photos } from "@/lib/photos";
 
 /** Common automotive VLT levels. Availability varies by film series — not a product list. */
 const SHADES = [
@@ -38,17 +36,7 @@ const WINDOW = "M92 470 L132 196 C142 134 178 108 244 102 L640 94 C702 94 738 12
 export function TintSelector() {
   const [vlt, setVlt] = useState<number>(35);
   const groupId = useId();
-  const photo = photos.ram1500Storefront;
-
-  const scene = (
-    <Image
-      src={photo.src}
-      alt=""
-      fill
-      sizes="(min-width: 1024px) 58vw, 100vw"
-      className="object-cover object-[50%_62%]"
-    />
-  );
+  const scene = <OutsideScene id={groupId} />;
 
   return (
     <div className="grid grid-cols-1 gap-10 lg:grid-cols-12 lg:gap-14">
@@ -203,5 +191,77 @@ export function TintSelector() {
         </div>
       </div>
     </div>
+  );
+}
+
+/** Palm silhouette: a curved trunk with a crown of fronds, drawn at (x, baseY). */
+function Palm({ x, baseY, h, lean = 1 }: { x: number; baseY: number; h: number; lean?: number }) {
+  const topX = x + 18 * lean;
+  const topY = baseY - h;
+  const fronds = [-150, -115, -70, -30, 10, 45, 80];
+  return (
+    <g>
+      <path d={`M${x} ${baseY} Q${x + 4 * lean} ${baseY - h * 0.55} ${topX} ${topY}`} stroke="currentColor" strokeWidth={h * 0.045} fill="none" strokeLinecap="round" />
+      {fronds.map((deg) => {
+        const r = (deg * Math.PI) / 180;
+        const len = h * 0.42;
+        const ex = topX + Math.cos(r) * len;
+        const ey = topY + Math.sin(r) * len * 0.55 + len * 0.28;
+        const cx = topX + Math.cos(r) * len * 0.5;
+        const cy = topY + Math.sin(r) * len * 0.6 - len * 0.12;
+        return <path key={deg} d={`M${topX} ${topY} Q${cx} ${cy} ${ex} ${ey}`} stroke="currentColor" strokeWidth={h * 0.03} fill="none" strokeLinecap="round" />;
+      })}
+    </g>
+  );
+}
+
+/**
+ * Illustrative bright daytime view (sky, sun glare, palms, road) seen through
+ * the side window — drawn rather than photographed so it loads instantly and
+ * makes each shade step easy to read.
+ */
+function OutsideScene({ id }: { id: string }) {
+  return (
+    <svg viewBox="0 0 800 600" preserveAspectRatio="xMidYMid slice" className="absolute inset-0 h-full w-full" aria-hidden>
+      <defs>
+        <linearGradient id={`${id}-sky`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#4f9fd6" />
+          <stop offset="0.55" stopColor="#a9d6ef" />
+          <stop offset="1" stopColor="#e9f4f7" />
+        </linearGradient>
+        <radialGradient id={`${id}-sun`} cx="0.78" cy="0.2" r="0.45">
+          <stop offset="0" stopColor="#fffbe8" stopOpacity="1" />
+          <stop offset="0.12" stopColor="#fff6cf" stopOpacity="0.9" />
+          <stop offset="1" stopColor="#fff6cf" stopOpacity="0" />
+        </radialGradient>
+        <linearGradient id={`${id}-road`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#8c9296" />
+          <stop offset="1" stopColor="#3d4246" />
+        </linearGradient>
+        <linearGradient id={`${id}-grass`} x1="0" y1="0" x2="0" y2="1">
+          <stop offset="0" stopColor="#7fa864" />
+          <stop offset="1" stopColor="#4c7340" />
+        </linearGradient>
+      </defs>
+      <rect width="800" height="600" fill={`url(#${id}-sky)`} />
+      <rect width="800" height="600" fill={`url(#${id}-sun)`} />
+      <g fill="#ffffff" opacity="0.85">
+        <ellipse cx="190" cy="150" rx="70" ry="16" />
+        <ellipse cx="240" cy="140" rx="46" ry="20" />
+        <ellipse cx="470" cy="205" rx="60" ry="12" />
+      </g>
+      {/* Distant tree line */}
+      <path d="M0 352 Q60 330 120 344 T240 338 T380 346 T520 334 T660 344 T800 336 V380 H0 Z" fill="#5d8a5a" opacity="0.7" />
+      <rect y="372" width="800" height="228" fill={`url(#${id}-grass)`} />
+      {/* Road in perspective */}
+      <path d="M352 372 L448 372 L800 600 L0 600 Z" fill={`url(#${id}-road)`} />
+      <path d="M398 380 L402 380 L412 430 L388 430 Z M384 456 L416 456 L432 540 L368 540 Z" fill="#f4f1e6" opacity="0.9" />
+      <g className="text-[#24402c]">
+        <Palm x={92} baseY={378} h={190} lean={1} />
+        <Palm x={150} baseY={380} h={140} lean={-1} />
+        <Palm x={640} baseY={376} h={170} lean={-1} />
+        <Palm x={712} baseY={380} h={220} lean={1} />
+      </g>
+    </svg>
   );
 }

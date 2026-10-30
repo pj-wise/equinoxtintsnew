@@ -32,9 +32,9 @@
   --color-steel: #22272b;
   --color-bone: #eeece7;
   --color-mist: #9ba3a8;
-  --color-teal: #13a7a8;
-  --color-teal-bright: #3cd6d4;
-  --color-teal-deep: #0b5e60;
+  --color-teal: #0fffff;
+  --color-teal-bright: #8affff;
+  --color-teal-deep: #007a7a;
 
   --font-sans: var(--font-archivo);
   --font-display: var(--font-archivo);
@@ -68,8 +68,8 @@
   --card-foreground: #eeece7;
   --popover: #0b0d0f;
   --popover-foreground: #eeece7;
-  --primary: #13a7a8;
-  --primary-foreground: #031414;
+  --primary: #0fffff;
+  --primary-foreground: #021a1a;
   --secondary: #15181b;
   --secondary-foreground: #eeece7;
   --muted: #15181b;
@@ -79,7 +79,7 @@
   --destructive: #ff6b5e;
   --border: rgb(255 255 255 / 0.1);
   --input: rgb(255 255 255 / 0.14);
-  --ring: #13a7a8;
+  --ring: #0fffff;
   --radius: 4px;
 
   --gutter: clamp(1.25rem, 4vw, 4rem);
@@ -199,9 +199,9 @@
     background: linear-gradient(
       100deg,
       transparent 0%,
-      rgb(60 214 212 / 0) 35%,
-      rgb(190 255 252 / 0.22) 50%,
-      rgb(60 214 212 / 0) 65%,
+      rgb(15 255 255 / 0) 35%,
+      rgb(200 255 255 / 0.22) 50%,
+      rgb(15 255 255 / 0) 65%,
       transparent 100%
     );
     transform: translateX(-120%) skewX(-12deg);

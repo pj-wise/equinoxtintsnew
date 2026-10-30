@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 export default function NotFound() {
   return (
     <section className="grain relative isolate flex min-h-[90svh] items-center overflow-hidden pt-[var(--header-h)]">
-      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(50%_50%_at_50%_50%,rgb(19_167_168/0.12),transparent_70%)]" />
+      <div className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(50%_50%_at_50%_50%,rgb(15_255_255/0.08),transparent_70%)]" />
       <div className="container-x">
         <p className="eyebrow mb-6">Error 404 · 0% VLT</p>
         <h1 className="font-display text-display-xl">

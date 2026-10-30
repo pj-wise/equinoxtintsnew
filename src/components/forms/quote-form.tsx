@@ -59,7 +59,7 @@ const initialState: QuoteState = { status: "idle" };
 
 type QuoteFormProps = { className?: string };
 
-/** Quote form; pre-selects the service from `?service=` when present. */
+/** Free estimate form; pre-selects the service from `?service=` when present. */
 export function QuoteForm(props: QuoteFormProps) {
   return (
     <Suspense fallback={<QuoteFormInner {...props} />}>
@@ -91,7 +91,7 @@ function QuoteFormInner({ className, preselected }: QuoteFormProps & { preselect
         className={cn("flex flex-col items-start gap-6 border border-teal/40 bg-teal/[0.06] p-8 sm:p-10", className)}
       >
         <CheckCircle2 aria-hidden className="size-10 text-teal-bright" />
-        <h3 className="font-display text-display-sm">Request received{state.name ? `, ${state.name}` : ""}.</h3>
+        <h3 className="font-display text-display-sm">Estimate request received{state.name ? `, ${state.name}` : ""}.</h3>
         <p className="max-w-md leading-relaxed text-mist">
           Thanks for reaching out. We&apos;ll get back to you soon. Need an answer sooner? Call us at{" "}
           <a href={site.phone.href} className="text-bone underline underline-offset-4">
@@ -196,9 +196,9 @@ function QuoteFormInner({ className, preselected }: QuoteFormProps & { preselect
         <button
           type="submit"
           disabled={pending}
-          className="group/cta inline-flex h-16 items-center justify-between gap-6 bg-teal pl-7 pr-2.5 text-[0.78rem] font-medium uppercase tracking-[0.14em] text-ink transition-[background-color,box-shadow] duration-500 hover:bg-teal-bright hover:shadow-[0_10px_40px_-10px_rgb(19_167_168/0.65)] disabled:opacity-70"
+          className="group/cta inline-flex h-16 items-center justify-between gap-6 bg-teal pl-7 pr-2.5 text-[0.78rem] font-medium uppercase tracking-[0.14em] text-ink transition-[background-color,box-shadow] duration-500 hover:bg-teal-bright hover:shadow-[0_10px_40px_-10px_rgb(15_255_255/0.46)] disabled:opacity-70"
         >
-          {pending ? "Sending…" : "Request my quote"}
+          {pending ? "Sending…" : "Request my free estimate"}
           <span className="grid size-10 place-items-center bg-ink/90 text-teal-bright">
             {pending ? (
               <Loader2 aria-hidden className="size-4 animate-spin" />

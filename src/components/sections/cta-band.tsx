@@ -14,7 +14,7 @@ type CtaBandProps = {
 
 /** Full-bleed closing call to action used at the end of interior pages. */
 export function CtaBand({
-  photo = photos.corvetteC6Blue,
+  photo = photos.fordMustangHex,
   title = ["Ready when", "you are."],
   quoteHref = "/contact",
 }: CtaBandProps) {
@@ -35,7 +35,7 @@ export function CtaBand({
         </p>
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <CtaLink href={quoteHref} size="lg" magnetic>
-            Get a quote
+            Get a free estimate
           </CtaLink>
           <CtaLink href={site.phone.href} variant="outline" size="lg" icon="phone">
             {site.phone.display}

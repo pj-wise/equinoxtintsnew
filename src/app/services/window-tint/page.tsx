@@ -24,7 +24,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services/window-tint" },
   openGraph: {
     url: "/services/window-tint",
-    images: [{ url: photos.lexusRx350.src.src, alt: photos.lexusRx350.alt }],
+    images: [{ url: photos.corvetteC8Orange.src.src, alt: photos.corvetteC8Orange.alt }],
   },
 };
 
@@ -46,7 +46,7 @@ export default function WindowTintPage() {
         eyebrow="Automotive window tint · Port St. Lucie"
         lines={["Window", <span key="2">tint<span className="text-teal">.</span></span>]}
         intro="Our automotive window tinting enhances the appearance of your car while protecting it from harmful UV rays, reducing heat and glare inside the car, and improving the overall driving experience."
-        photo={photos.lexusRx350}
+        photo={photos.corvetteC8Orange}
         crumbs={[
           { name: "Services", path: "/services" },
           { name: "Window Tint", path: "/services/window-tint" },
@@ -54,7 +54,7 @@ export default function WindowTintPage() {
         actions={
           <>
             <CtaLink href={quoteHref("Automotive window tint")} size="lg" magnetic>
-              Get a tint quote
+              Free tint estimate
             </CtaLink>
             <CtaLink href={site.phone.href} variant="outline" size="lg" icon="phone">
               {site.phone.display}
@@ -87,8 +87,8 @@ export default function WindowTintPage() {
           <div className="lg:col-span-6">
             <Parallax className="aspect-[4/5] w-full bg-graphite" amount={10}>
               <Image
-                src={photos.hyundaiTucson.src}
-                alt={photos.hyundaiTucson.alt}
+                src={photos.squeegeeGlass.src}
+                alt={photos.squeegeeGlass.alt}
                 fill
                 placeholder="blur"
                 sizes="(min-width: 1024px) 50vw, 100vw"
@@ -113,7 +113,7 @@ export default function WindowTintPage() {
 
       <FilmLineup />
       <TintSection />
-      <CtaBand photo={photos.audiA3} title={["Pick your", "film & shade."]} quoteHref={quoteHref("Automotive window tint")} />
+      <CtaBand photo={photos.lexusHex} title={["Pick your", "film & shade."]} quoteHref={quoteHref("Automotive window tint")} />
     </PageTransition>
   );
 }

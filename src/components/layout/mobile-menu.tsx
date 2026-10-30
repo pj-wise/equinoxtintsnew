@@ -54,7 +54,7 @@ export function MobileMenu() {
           )}
         >
           <Dialog.Title className="sr-only">Site menu</Dialog.Title>
-          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_50%_at_100%_0%,rgb(19_167_168/0.18),transparent_70%)]" />
+          <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(80%_50%_at_100%_0%,rgb(15_255_255/0.13),transparent_70%)]" />
 
           <div className="container-x relative flex h-[var(--header-h)] shrink-0 items-center justify-between">
             <Logo className="h-9 sm:h-10" />
@@ -120,7 +120,7 @@ export function MobileMenu() {
                 onClick={() => onOpenChange(false)}
                 className="flex h-14 items-center justify-center gap-2 bg-teal text-xs font-medium uppercase tracking-[0.14em] text-ink"
               >
-                Get a quote <ArrowUpRight aria-hidden className="size-4" />
+                Free estimate <ArrowUpRight aria-hidden className="size-4" />
               </Link>
             </div>
             <dl className="grid gap-3 text-sm text-mist">

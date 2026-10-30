@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   alternates: { canonical: "/services/ceramic-coating" },
   openGraph: {
     url: "/services/ceramic-coating",
-    images: [{ url: photos.corvetteC6Blue.src.src, alt: photos.corvetteC6Blue.alt }],
+    images: [{ url: photos.corvetteC8Red.src.src, alt: photos.corvetteC8Red.alt }],
   },
 };
 
@@ -36,7 +36,7 @@ export default function CeramicCoatingPage() {
         eyebrow="Ceramic coating · Port St. Lucie"
         lines={["Ceramic", <span key="2">coating<span className="text-teal">.</span></span>]}
         intro={ceramicCoating.intro}
-        photo={photos.corvetteC6Blue}
+        photo={photos.corvetteC8Red}
         crumbs={[
           { name: "Services", path: "/services" },
           { name: "Ceramic Coating", path: "/services/ceramic-coating" },
@@ -44,7 +44,7 @@ export default function CeramicCoatingPage() {
         actions={
           <>
             <CtaLink href={quoteHref("Ceramic coating")} size="lg" magnetic>
-              Get a coating quote
+              Free coating estimate
             </CtaLink>
             <CtaLink href={site.phone.href} variant="outline" size="lg" icon="phone">
               {site.phone.display}
@@ -59,8 +59,8 @@ export default function CeramicCoatingPage() {
             <div className="grid grid-cols-2 gap-3 sm:gap-4">
               <ImageReveal className="col-span-2 aspect-[4/3] bg-graphite" direction="right">
                 <Image
-                  src={photos.corvetteC7Black.src}
-                  alt={photos.corvetteC7Black.alt}
+                  src={photos.lexusHex.src}
+                  alt={photos.lexusHex.alt}
                   fill
                   placeholder="blur"
                   sizes="(min-width: 1024px) 40vw, 100vw"
@@ -69,8 +69,8 @@ export default function CeramicCoatingPage() {
               </ImageReveal>
               <ImageReveal className="aspect-[4/5] bg-graphite" direction="up" delay={0.1}>
                 <Image
-                  src={photos.dodgeCharger.src}
-                  alt={photos.dodgeCharger.alt}
+                  src={photos.ceramicCoatingApplication.src}
+                  alt={photos.ceramicCoatingApplication.alt}
                   fill
                   placeholder="blur"
                   sizes="(min-width: 1024px) 20vw, 50vw"
@@ -79,8 +79,8 @@ export default function CeramicCoatingPage() {
               </ImageReveal>
               <ImageReveal className="aspect-[4/5] bg-graphite" direction="up" delay={0.2}>
                 <Image
-                  src={photos.audiA5.src}
-                  alt={photos.audiA5.alt}
+                  src={photos.fordMustangHex.src}
+                  alt={photos.fordMustangHex.alt}
                   fill
                   placeholder="blur"
                   sizes="(min-width: 1024px) 20vw, 50vw"
@@ -130,12 +130,12 @@ export default function CeramicCoatingPage() {
 
       <section aria-label="Gallery highlight" className="relative h-[70vh] min-h-[420px]">
         <Parallax className="absolute inset-0" amount={12}>
-          <Image src={photos.fordMustang.src} alt={photos.fordMustang.alt} fill sizes="100vw" placeholder="blur" className="object-cover object-[50%_55%]" />
+          <Image src={photos.dodgeChargerRed.src} alt={photos.dodgeChargerRed.alt} fill sizes="100vw" placeholder="blur" className="object-cover object-[50%_55%]" />
         </Parallax>
         <div className="absolute inset-0 bg-gradient-to-t from-ink via-transparent to-ink/60" />
       </section>
 
-      <CtaBand photo={photos.corvetteC7Black} title={["Keep it", "glossy."]} quoteHref={quoteHref("Ceramic coating")} />
+      <CtaBand photo={photos.corvetteC8Yellow} title={["Keep it", "glossy."]} quoteHref={quoteHref("Ceramic coating")} />
     </PageTransition>
   );
 }

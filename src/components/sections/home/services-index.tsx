@@ -99,7 +99,7 @@ export function ServicesIndex() {
                       href={quoteHref(service.quoteValue)}
                       className="relative z-10 mt-4 inline-block text-xs uppercase tracking-[0.16em] text-bone/70 underline-offset-4 transition-colors hover:text-teal-bright hover:underline"
                     >
-                      Request a quote<span className="sr-only"> for {service.name}</span>
+                      Get a free estimate<span className="sr-only"> for {service.name}</span>
                     </Link>
                   </div>
                   <div className="hidden lg:col-span-1 lg:flex lg:justify-end">

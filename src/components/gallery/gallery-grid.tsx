@@ -11,7 +11,7 @@ import type { Photo, PhotoCategory } from "@/lib/photos";
 const FILTERS: { value: PhotoCategory | "all"; label: string }[] = [
   { value: "all", label: "All" },
   { value: "vehicles", label: "Vehicles" },
-  { value: "studio", label: "The studio" },
+  { value: "studio", label: "In the studio" },
 ];
 
 // Editorial rhythm: tile aspect ratios cycle so the grid never feels uniform.
